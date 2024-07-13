@@ -1,0 +1,214 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, Arial;
+}
+
+.orders-container{
+    margin-top:45px;
+    padding: 15px 20px 100px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.order_page_header {
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(15, 15, 15);
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.order-info {
+  background-color: rgb(236, 236, 236);
+  display: flex;
+  flex-direction: row;
+  border: 1px solid rgb(214, 214, 214);
+  border-radius: 8px 8px 0 0;
+  border-bottom-width: 0px;
+  padding: 20px 5px;
+}
+
+.order_date,
+.total,
+.order_id {
+  font-size: 16px;
+  font-weight: 410;
+  padding-left:15px;
+}
+
+.order_date{
+  padding-right: 45px;
+}
+
+.total{
+  padding-right: 80px;
+}
+
+.value {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.order-overview-container {
+  padding: 40px 15px 0 15px;
+  display: grid;
+  grid-template-columns: 120px 1fr 1fr;
+  row-gap: 30px;
+  column-gap: 25px;
+  padding-bottom: 20px;
+  border: 1px solid rgb(214, 214, 214);
+  border-radius: 0 0 8px 8px;
+}
+
+.order_img {
+  width: 100%;
+}
+
+.order-img-container {
+  width: 100px;
+  padding: 3px 50px 0 3px;
+}
+
+.product_name {
+  font-size: 17px;
+  font-weight: 440;
+  padding-bottom: 4px;
+}
+
+.arrival_time {
+  font-size: 17px;
+  padding-bottom: 1px;
+}
+
+.quantity {
+  font-size: 17px;
+  padding-bottom: 8px;
+}
+
+.btn_buy_again {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 216, 20);
+  border: none;
+  border-radius: 8px;
+  padding: 6px 10px 5px 5px;
+  color: rgb(12, 11, 11);
+  font-size: 14px;
+  font-weight: 410;
+  box-shadow: 0px 2px 2px rgb(206, 206, 206);
+}
+
+.buy_again_img{
+  width: 100%;
+}
+
+.buy-again-img-container {
+  width: 25px;
+  padding:0 15px 0 5px;
+}
+
+.btn_buy_again:hover {
+  background-color: rgb(255, 187, 0)
+}
+
+.btn-track-order-container {
+  width: 200px;
+  padding-left: 50px;
+}
+
+.btn_track_order {
+  width: 100%;
+  padding: 10px 20px;
+  color: rgb(26, 26, 26);
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 2px 2px rgb(177, 176, 176);
+}
+
+@media (max-width: 700px){
+  .order-overview-container {
+    grid-template-columns: 120px 1fr;
+    row-gap: 0px;
+  }
+
+  .btn-track-order-container {
+    grid-column: 2;
+    padding: 0px;
+    margin-bottom: 30px;
+  }
+
+  .btn_track_order {
+    width: 130px;
+  }
+}
+
+@media (max-width: 480px){
+
+  .order-info {
+    flex-direction: column;
+    row-gap: 5px;
+  }
+
+  .order_date,
+  .total,
+  .order_id {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .value {
+    padding-left: 8px;
+  }
+
+  .order-overview-container {
+    grid-template-columns: 1fr;
+    row-gap: 0px;
+    padding: 20px;
+    padding-bottom: 0px;
+  }
+
+  .order-img-container{
+    width: 100%;
+    padding-bottom: 10px;
+  }
+
+  .order_img{
+    width: 150px;
+    padding: 0 70px;
+  }
+
+  .more-order-info {
+    padding-top: 30px;
+  }
+
+  .btn-buy-again-container {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .btn_buy_again {
+    width: 100%;
+  }
+
+  .btn-track-order-container{
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .btn_track_order {
+    width: 100%;
+  }
+
+
+
+
+
+  /* .btn_track_order {
+    display: none;
+  } */
+}

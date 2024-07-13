@@ -1,0 +1,170 @@
+body {
+  font-family: Roboto, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.main-container {
+  margin-top: 60px;
+}
+
+.product-name,
+.item_name {
+  height: 40px;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgb(32, 32, 32);
+  line-height: 20px;
+}
+
+.rating-img,
+.rating_img {
+  width: 100%;
+  padding-right: 10px;
+}
+
+.product-rating-container,
+.item_rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px 0;
+
+}
+
+.product-rating,
+.stars {
+  width: 110px;
+}
+
+.rating {
+  font-size: 17px;
+  color: rgb(29, 160, 184);
+  padding-left: 6px;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+.limit-to-2-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+select {
+  color: rgb(33, 33, 33);
+  background-color: rgb(240, 240, 240);
+  border: 1px solid rgb(213, 217, 217);
+  border-radius: 8px;
+  padding: 3px 5px;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+}
+
+.amazon-logo2:hover,
+.hamburger:hover {
+  border: 1px solid whitesmoke;
+}
+
+.amazon-logo1:hover,
+.amazon-logo2:hover,
+.rating:hover,
+.cart:hover,
+.btn_search:hover,
+.return_and_orders:hover,
+.cart:hover,
+.hamburger:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 1200px) {
+  .main-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+
+@media (min-width: 1000px) and (max-width: 1300px) {
+  .main-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+@media (min-width: 750px) and (max-width: 1000px) {
+  .main-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+@media (min-width: 550px) and (max-width: 750px) {
+  .main-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .add-to-cart {
+    width: 230px;
+  }
+
+}
+
+@media (max-width: 550px) {
+  .main-container {
+    grid-template-columns: 1fr;
+  }
+
+  .amazon-logo1 {
+    display: none;
+  }
+
+  .amazon_logo2_img {
+    width: 100%;
+  }
+
+  .amazon-logo2 {
+    display: flex;
+    width: 37px;
+    padding: 3px 6px;
+    border: 1px solid rgb(19, 25, 33);
+    border-radius: 4px;
+  }
+
+  .middle_section {
+    padding-left: 5px;
+  }
+
+  .right_section {
+    width: 50px;
+  }
+
+  .hamburger_icon {
+    height: 100%;
+  }
+
+  .hamburger {
+    height: 18px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    border: 1px solid rgb(19, 25, 33);
+    border-radius: 4px;
+  }
+
+  .return_and_orders,
+  .cart {
+    display: none;
+  }
+
+}

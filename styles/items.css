@@ -1,0 +1,80 @@
+.main-container {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+}
+
+.item-img-container {
+  width: 400px;
+  padding-top: 100px;
+  padding-left: 50px;
+  padding-right: 60px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  margin: 0 20px;
+}
+
+.item_img {
+  width: 100%;
+}
+
+.items-info-container {
+  width: 500px;
+  min-width: none;
+}
+
+.item_info {
+  padding-top: 20px;
+}
+
+.item_name {
+  font-size: 25px;
+  line-height: 25px;
+}
+
+.stars {
+  font-size: 15px;
+  padding-left: 5px;
+  width: 100px;
+}
+
+.item_price {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: rgb(95, 95, 95);
+  font-size: 13px;
+}
+
+.price {
+  color: rgb(158, 16, 16);
+  font-size: 20px;
+  padding-left: 5px;
+}
+
+.offers-tray {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.return-exchange_img,
+.free_delivery_img,
+.pay_on_delivery_img,
+.secure_transaction_img{
+  height: 100%;
+}
+
+.return-exchange,
+.free-delivery,
+.pay-on-delivery,
+.secure-transaction {
+    display: flex;
+    flex-direction: column;
+    height: 40px;
+    border: 1px solid black;
+}
+
+.span_text {
+    font-size: 10px;
+}

@@ -1,0 +1,289 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  background-color: white;
+}
+
+.amazon-logo1,
+.amazon-logo2 {
+  padding-top: 10px;
+  border: 1px solid transparent;
+}
+
+.amazon_logo1_img,
+.amazon_logo2_img {
+  padding-top: 10px;
+}
+
+.amazon-logo1:hover,
+.amazon-logo2:hover {
+  pointer-events: none;
+}
+
+.checkout {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 500;
+  color: rgb(32, 32, 32);
+}
+
+.checkout span {
+  color: #006cfa
+}
+
+.right_section {
+  width: 50px;
+  padding-right: 30px;
+  justify-content: end;
+  align-items: center;
+}
+
+.cart-container {
+  padding: 0 20px;
+  padding-top: 100px;
+  display: grid;
+  align-items:center;
+}
+
+.page_header {
+  font-size: 22px;
+  font-weight: 600;
+  color: rgb(27, 27, 27);
+  padding-bottom: 15px;
+}
+
+.cart-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  column-gap: 15px;
+}
+
+
+.cart-items-container,
+.order-summary-container {
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.order-summary-container{
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.cart_items {
+  display: grid;
+  grid-template-columns:1fr 1fr;
+}
+
+.product-img-and-info-container {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+}
+
+.delivery_date {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(0, 118, 0);
+  padding-bottom: 20px;
+}
+
+.product_img {
+  width: 100%;
+}
+
+.product-info {
+  padding: 0 20px;
+}
+
+.product_name {
+  font-size: 17px;
+  font-weight: 500;
+  padding-bottom: 5px;
+}
+
+.price {
+  color: rgb(177, 39, 4);
+  font-weight: 500;
+  padding-bottom: 4px;
+}
+
+.quantity {
+  font-weight: 400;
+}
+
+.add,
+.remove {
+  color: rgb(0, 99, 248);
+  padding:0 5px 0 10px;
+}
+
+.add:hover,
+.remove:hover {
+  color: rgb(250, 94, 55);
+}
+
+.delivery-option {
+  display: grid;
+  grid-column: 2;
+  padding-left: 10px;
+}
+
+.delivery_header {
+  font-size: 16px;
+  font-weight: 510;
+  color: rgb(27, 27, 27);
+  padding-bottom: 10px;
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  row-gap: 5px;
+  column-gap: 2px;
+}
+
+.option {
+  font-size: 15px;
+  font-weight: 450;
+}
+
+.day_date {
+  color: rgb(4, 133, 4);
+}
+
+.shipping_charge {
+  font-weight: 400;
+  color: rgb(78, 78, 78)
+}
+
+.summary_header {
+  font-size: 18px;
+  font-weight: 500;
+  padding-bottom: 10px;
+}
+
+.order-summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 50px;
+}
+
+.order-total-value {
+  display: flex;
+  flex-direction: column;
+}
+
+.charges {
+  font-size: 16px;
+  padding-bottom: 8px;
+  color: rgb(26, 26, 26)
+}
+
+.value {
+  font-size: 16px;
+  padding-bottom: 8px;
+  color: rgb(17, 17, 17)
+}
+
+.Total {
+  border: 1px solid rgb(167, 167, 167);
+  border-width: 1px 0 0 0;
+  padding-top: 8px;
+}
+
+.total {
+  padding-top: 8px;
+}
+
+.total-and-payment {
+  border: 1px solid rgb(167, 167, 167);
+  border-width: 1px 0 0 0;
+  padding-top: 15px;
+}
+
+.order-total {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 18px;
+  font-weight: 510;
+  color: rgb(177, 39, 4);
+  padding-bottom: 10px;
+}
+
+.total-value {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.payment-check {
+  font-size: 17px;
+}
+
+.payment_check {
+  height: 18px;
+  width: 18px;
+}
+
+.btn-pyo-container {
+  padding: 10px 0;
+}
+
+.pyo{
+  width: 100%;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 550;
+  background-color: rgb(255, 216, 20);
+  border: none;
+  border-radius: 5px;
+}
+
+.pyo:hover {
+  background-color: rgb(255, 153, 0);
+}
+
+@media (max-width: 900px) {
+
+  .cart-container {
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+
+  .cart-grid {
+    grid-template-columns:1fr;
+  }
+
+  .order-summary-container {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .cart_items {
+    grid-template-columns: 1fr;
+  }
+
+  .product-img-container {
+    width: 100px;
+  }
+
+  .product-img-and-info-container{
+    margin-bottom: 15px;
+    
+  }
+
+  .delivery-option {
+    grid-column: 1;
+  }
+
+  .btn-pyo-container {
+    padding: 20px 10vw;
+  }
+
+  .pyo {
+    border-radius: 20px;
+  }
+}
