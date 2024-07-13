@@ -11,7 +11,7 @@ cart_items.forEach((cart_items)=>{
         <div class="cart_items">
           <div class="product-img-and-info-container">          
           <div class="product-img-container">
-            <img class="product_img" src="../${cart_items.ProductImage}">
+            <img class="product_img" src="${cart_items.ProductImage}">
           </div>
           <div class="product-info">
             <div class="product_name">${cart_items.ProductName}</div>
