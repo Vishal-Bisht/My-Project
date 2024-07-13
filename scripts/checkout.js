@@ -12,27 +12,29 @@ cart_items.forEach((cart_items)=>{
         <div class="cart_items">
           <div class="product-img-and-info-container">          
           <div class="product-img-container">
-            <img class="product_img" src="${cart_items.image}">
+            <img class="product_img" src="${cart_items.ProductImage}">
           </div>
           <div class="product-info">
-            <div class="product_name">${cart_items.name}</div>
-            <div class="price">$${formatCurrency(cart_items.price)}</div>
+            <div class="product_name">${cart_items.ProductName}</div>
+            <div class="price">$${formatCurrency(cart_items.ProductPrice)}</div>
             <div class="quantity">Quantity: ${cart_items.quantity} <span class="btn add">+1</span><span class="btn remove">remove</span> </div>
           </div>
           </div>
           <div class="delivery-option">
             <div class="delivery_header">Choose a delivery option:</div>
             <div class="option-grid">
-            <input class = "btn" type="radio"
-             name="${product.id}-date checked><label>
+            <input class = "btn" type="radio" name="date">
+             <label>
               <div class="option day_date">Tuesday, July 9</div>
               <div class="option shipping_charge">Free Shipping</div>
             </label>
-            <input class = "btn" type="radio" name="${product.id}-date><label>
+            <input class = "btn" type="radio" name="date">
+            <label>
               <div class="option day_date">Wednesday, July 3</div>
               <div class="option shipping_charge">$4.99 - Shipping</div>
             </label>
-            <input class = "btn" type="radio" name="${product.id}-date><label>
+            <input class = "btn" type="radio" name="date">
+            <label>
               <div class="option day_date">Monday, July 1</div>
               <div class="option shipping_charge">$9.99 - Shipping</div>
             </label>
