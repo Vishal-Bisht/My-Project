@@ -2,24 +2,28 @@ import {cart_items} from '../data/cart_items.js';
 import {product} from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 
+
+localStorage.setItem('product',JSON.stringify(product));
+console.log(localStorage.getItem('product'));
+
 let productHTML = ``;
 
-product.forEach((product) => {
+JSON.parse(localStorage.getItem('product')).forEach((Product) => {
   productHTML += `
       <div class="product-container">
-          <div class="product-img-container"><img class="product_img" src="${product.image}">
+          <div class="product-img-container"><img class="product_img" src="${Product.image}">
           </div>
           <div class="product-info">
-            <div class="limit-to-2-lines product-name">${product.name}</div>
+            <div class="limit-to-2-lines product-name">${Product.name}</div>
             <div class="product-rating-container">
               <div class="product-rating">
-                <img class="rating-img" src="images/ratings/rating-${product.rating.stars * 10}.png">
+                <img class="rating-img" src="images/ratings/rating-${Product.rating.stars * 10}.png">
               </div>
-              <div class="rating">${product.rating.count}</div>
+              <div class="rating">${Product.rating.count}</div>
             </div>
-            <div class="price">$${formatCurrency(product.price)}</div>
+            <div class="price">$${formatCurrency(Product.price)}</div>
             <div class="product-quantity">
-              <select class = "Quantity-${product.productId}" id="Quantity">
+              <select class = "Quantity-${Product.productId}" id="Quantity">
                 <option selected="1">1</option>
                 <option >2</option>
                 <option >3</option>
@@ -33,9 +37,9 @@ product.forEach((product) => {
               </select>
             </div>
             <div class="add-to-cart">
-              <button class="btn_add_to_cart"  data-product-name= "${product.name}" data-product-image = "${product.image}"
-              data-product-id= "${product.id}"
-               data-product-price= "${product.price}">Add to Cart</button>
+              <button class="btn_add_to_cart"  data-product-name= "${Product.name}" data-product-image = "${Product.image}"
+              data-product-id= "${Product.id}"
+               data-product-price= "${Product.price}">Add to Cart</button>
             </div>
           </div>
         </div>`;
@@ -47,7 +51,7 @@ function addToCart(productId,productName,productImage,productPrice){
   let matchingitem;
   
   cart_items.forEach((cartitem) => {
-    if (productId === cartitem.productId) {
+    if (productId === cartitem.ProductId) {
       matchingitem = cartitem;
     }
   });
@@ -63,6 +67,8 @@ function addToCart(productId,productName,productImage,productPrice){
             productPrice: productPrice,
             quantity: 1
           });
+
+          localStorage.setItem('cart_items', JSON.stringify(cart_items));
         }
 }
 
@@ -87,6 +93,7 @@ document.querySelectorAll('.btn_add_to_cart')
         addToCart(productId,productName,productImage,productPrice);
         updateCartQuantity();
         console.log(cart_items);
+        console.log(localStorage.getItem('ProductId'));
   });
   });
 
