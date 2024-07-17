@@ -116,14 +116,14 @@ body {
   font-weight: 400;
 }
 
-.add,
-.remove {
+.add-item,
+.delete-item {
   color: rgb(0, 99, 248);
   padding:0 5px 0 10px;
 }
 
-.add:hover,
-.remove:hover {
+.add-item:hover,
+.delete-item:hover {
   color: rgb(250, 94, 55);
 }
 

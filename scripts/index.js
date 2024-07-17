@@ -1,14 +1,10 @@
-import {cart_items} from '../data/cart_items.js';
-import {product} from '../data/products.js';
+import {cart_items} from '../data/cart.js';
+import {products} from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
-
-
-localStorage.setItem('product',JSON.stringify(product));
-console.log(localStorage.getItem('product'));
 
 let productHTML = ``;
 
-JSON.parse(localStorage.getItem('product')).forEach((Product) => {
+products.forEach((Product) => {
   productHTML += `
       <div class="product-container">
           <div class="product-img-container"><img class="product_img" src="${Product.image}">
@@ -37,9 +33,8 @@ JSON.parse(localStorage.getItem('product')).forEach((Product) => {
               </select>
             </div>
             <div class="add-to-cart">
-              <button class="btn_add_to_cart"  data-product-name= "${Product.name}" data-product-image = "${Product.image}"
-              data-product-id= "${Product.id}"
-               data-product-price= "${Product.price}">Add to Cart</button>
+              <button class="btn_add_to_cart"
+              data-product-id= "${Product.id}">Add to Cart</button>
             </div>
           </div>
         </div>`;
@@ -47,7 +42,7 @@ JSON.parse(localStorage.getItem('product')).forEach((Product) => {
 
 document.querySelector('.main-container').innerHTML = productHTML;
 
-function addToCart(productId,productName,productImage,productPrice){
+function addToCart(productId){
   let matchingitem;
   
   cart_items.forEach((cartitem) => {
@@ -62,13 +57,8 @@ function addToCart(productId,productName,productImage,productPrice){
         else {
           cart_items.push({
             productId: productId,
-            productName: productName,
-            productImage: productImage,
-            productPrice: productPrice,
             quantity: 1
           });
-
-          localStorage.setItem('cart_items', JSON.stringify(cart_items));
         }
 }
 
@@ -86,14 +76,10 @@ document.querySelectorAll('.btn_add_to_cart')
 
       button.addEventListener('click', () => {
         const productId = button.dataset.productId;
-        const productName = button.dataset.productName;
-        const productImage = button.dataset.productImage;
-        const productPrice = button.dataset.productPrice;
-
-        addToCart(productId,productName,productImage,productPrice);
+       
+        addToCart(productId);
         updateCartQuantity();
         console.log(cart_items);
-        console.log(localStorage.getItem('ProductId'));
   });
   });
 

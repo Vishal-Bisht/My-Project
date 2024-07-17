@@ -1,4 +1,4 @@
-export const generateId = () => {
+const generateId = () => {
   const albs = 'abcdefghijklmnopqrstuvwxyz0123456789';
 
   const generateSegment = (length) => {
