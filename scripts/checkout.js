@@ -1,25 +1,31 @@
-import {cart, CartquantityCount, updateItemQuantity,removeFromCart} from '../data/cart.js';
-import {products} from '../data/products.js';
+import { cart, CartquantityCount, updateItemQuantity, removeFromCart } from '../data/cart.js';
+import { products } from '../data/products.js';
+import { deliveryOptions } from '../data/deliveryOptions.js';
 import { formatCurrency } from './utils/money.js';
+import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
+
+
+const today = dayjs();
+const date = today.add(7,'days');
 
 let cartHTML = ``;
 
-cart.forEach((cart_items)=>{
+cart.forEach((cart_items) => {
 
   const productId = cart_items.id;
 
   let matchingProduct = null;
 
-  products.forEach((product)=>{
-    if(product.id === productId){
+  products.forEach((product) => {
+    if (product.id === productId) {
       matchingProduct = product;
       return;
     }
   });
 
-    cartHTML += `<div class="cart-items-container container-${matchingProduct.id}">
+  cartHTML += `<div class="cart-items-container container-${matchingProduct.id}">
         <div class="delivery_date">
-          Delivery date: ${cart_items.delivery_date}
+          Delivery date: ${date.format('dddd, MMMM D')}
         </div>
         <div class="cart_items">
           <div class="product-img-and-info-container">          
@@ -35,27 +41,13 @@ cart.forEach((cart_items)=>{
           <div class="delivery-option">
             <div class="delivery_header">Choose a delivery date:</div>
             <div class="option-grid">
-            <input class = "btn" type="radio" name="${matchingProduct.id}-date">
-             <label>
-              <div class="option day_date">Tuesday, July 9</div>
-              <div class="option shipping_charge">Free Shipping</div>
-            </label>
-            <input class = "btn" type="radio" name="${matchingProduct.id}-date">
-            <label>
-              <div class="option day_date">Wednesday, July 3</div>
-              <div class="option shipping_charge">$4.99 - Shipping</div>
-            </label>
-            <input class = "btn" type="radio" name="${matchingProduct.id}-date">
-            <label>
-              <div class="option day_date">Monday, July 1</div>
-              <div class="option shipping_charge">$9.99 - Shipping</div>
-            </label>
-          </div>
+            ${deliveryOptionsHTML(matchingProduct,cart_items)}
+            </div>
           </div>
         </div>
       </div>`;
 });
-  cartHTML += `<div class="order-summary-container">
+cartHTML += `<div class="order-summary-container">
         <div class="summary_header">Order Summary</div>
         <div class="order-summary-grid">
         <div class="order-total-charges">
@@ -96,20 +88,37 @@ cart.forEach((cart_items)=>{
         </div>
       </div>`;
 
-document.querySelector('.cart-grid').innerHTML=cartHTML;
+function deliveryOptionsHTML(matchingProduct,cart_items) {
+  let html = '';
+  deliveryOptions.forEach((deliveryOption) => {
+    const deliveryDate = today.add(deliveryOption.deliveryDays,'days');
+    const dateString = deliveryDate.format('dddd, MMMM D');
+    const priceString = deliveryOption.price===0?'FREE':`$${(formatCurrency(deliveryOption.price))} - `;
+    const isChecked = deliveryOption.id ==='1';
+   html += `<input class = "btn" type="radio" ${isChecked?'checked':''} name="${matchingProduct.id}-date">
+             <label>
+              <div class="option day_date">${dateString}</div>
+              <div class="option shipping_charge">${priceString} Shipping</div>
+            </label>
+          `
+  });
+  return html;
+}
+
+document.querySelector('.cart-grid').innerHTML = cartHTML;
 
 let cartQuantity = CartquantityCount();
 document.querySelector('.cartquantity').innerHTML = `${cartQuantity} items`;
 
-document.querySelectorAll('.add-item').forEach((link)=>{
-  link.addEventListener('click', ()=>{
+document.querySelectorAll('.add-item').forEach((link) => {
+  link.addEventListener('click', () => {
     const productId = link.dataset.productId;
-      updateItemQuantity(productId);
+    updateItemQuantity(productId);
   });
 });
 
-document.querySelectorAll('.delete-item').forEach((link)=>{
-  link.addEventListener('click', ()=>{
+document.querySelectorAll('.delete-item').forEach((link) => {
+  link.addEventListener('click', () => {
     const productId = link.dataset.productId;
     removeFromCart(productId);
     const cart_item_container = document.querySelector(`.container-${productId}`);
