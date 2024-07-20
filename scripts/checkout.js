@@ -1,4 +1,4 @@
-import {cart, removeFromCart} from '../data/cart.js';
+import {cart, CartquantityCount, updateItemQuantity,removeFromCart} from '../data/cart.js';
 import {products} from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 
@@ -29,23 +29,23 @@ cart.forEach((cart_items)=>{
           <div class="product-info">
             <div class="product_name">${matchingProduct.name}</div>
             <div class="price">$${formatCurrency(matchingProduct.price)}</div>
-            <div class="quantity">Quantity: ${cart_items.quantity} <span class="btn add-item">Update</span><span class="btn delete-item" data-product-id="${matchingProduct.id}">Delete</span> </div>
+            <div>Quantity: <span class="quantity" data-product-quantity = "${cart_items.quantity}">${cart_items.quantity}</span> <span class="btn add-item" data-product-id="${matchingProduct.id}">Update</span><span class="btn delete-item" data-product-id="${matchingProduct.id}">Delete</span> </div>
           </div>
           </div>
           <div class="delivery-option">
             <div class="delivery_header">Choose a delivery date:</div>
             <div class="option-grid">
-            <input class = "btn" type="radio" name="${cart_items.ProductId}-date">
+            <input class = "btn" type="radio" name="${matchingProduct.id}-date">
              <label>
               <div class="option day_date">Tuesday, July 9</div>
               <div class="option shipping_charge">Free Shipping</div>
             </label>
-            <input class = "btn" type="radio" name="${cart_items.ProductId}-date">
+            <input class = "btn" type="radio" name="${matchingProduct.id}-date">
             <label>
               <div class="option day_date">Wednesday, July 3</div>
               <div class="option shipping_charge">$4.99 - Shipping</div>
             </label>
-            <input class = "btn" type="radio" name="${cart_items.ProductId}-date">
+            <input class = "btn" type="radio" name="${matchingProduct.id}-date">
             <label>
               <div class="option day_date">Monday, July 1</div>
               <div class="option shipping_charge">$9.99 - Shipping</div>
@@ -98,19 +98,13 @@ cart.forEach((cart_items)=>{
 
 document.querySelector('.cart-grid').innerHTML=cartHTML;
 
-function Checkoutcartquantity(){
-  let cartQuantity = 0;
-  cart.forEach((cartitem)=>{
-    cartQuantity += cartitem.quantity;
-  });
-  document.querySelector('.cartquantity').innerHTML = `${cartQuantity} items`;
-};
-
-Checkoutcartquantity();
+let cartQuantity = CartquantityCount();
+document.querySelector('.cartquantity').innerHTML = `${cartQuantity} items`;
 
 document.querySelectorAll('.add-item').forEach((link)=>{
   link.addEventListener('click', ()=>{
     const productId = link.dataset.productId;
+      updateItemQuantity(productId);
   });
 });
 
@@ -118,8 +112,9 @@ document.querySelectorAll('.delete-item').forEach((link)=>{
   link.addEventListener('click', ()=>{
     const productId = link.dataset.productId;
     removeFromCart(productId);
-
     const cart_item_container = document.querySelector(`.container-${productId}`);
     cart_item_container.remove();
+    cartQuantity--;
+    document.querySelector('.cartquantity').innerHTML = `${cartQuantity} items`;
   });
 });

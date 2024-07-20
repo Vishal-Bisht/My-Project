@@ -118,13 +118,21 @@ body {
 
 .add-item,
 .delete-item {
-  color: rgb(0, 99, 248);
+  color: rgb(31, 31, 31);
   padding:0 5px 0 10px;
+  border: 1px solid rgb(192, 192, 192);
+  border-radius: 8px;
+  margin: 0px 4px;
+  padding: 2px 4px;
+  background-color: rgb(236, 236, 236);
+  box-shadow: 1px 1px 1px transparent;
+  transition: box-shadow 150ms;
 }
 
 .add-item:hover,
 .delete-item:hover {
   color: rgb(250, 94, 55);
+  box-shadow: 2px 2px 3px grey;
 }
 
 .delivery-option {
