@@ -69,3 +69,15 @@ export function CartquantityCount() {
   });
   return cartQuantity;
 };
+
+export function updateDeliveryOptions(productId,deliveryOptionId) {
+  let matchingitem = null;
+
+  cart.forEach((cartitem) => {
+    if (productId === cartitem.id) {
+      matchingitem = cartitem;
+    }
+  });
+  matchingitem.deliveryOptionId = deliveryOptionId;
+  saveToStorage();
+}

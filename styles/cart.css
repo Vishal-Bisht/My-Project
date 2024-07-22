@@ -61,18 +61,17 @@ body {
   column-gap: 15px;
 }
 
+.cart-grid-item-container{
+  padding-left: 100px;
+}
 
 .cart-items-container,
 .order-summary-container {
+  max-width: 800px;
   border: 1px solid rgb(211, 211, 211);
   border-radius: 5px;
   padding: 15px;
   margin-bottom: 10px;
-}
-
-.order-summary-container{
-  grid-column: 2;
-  grid-row: 1;
 }
 
 .cart_items {
@@ -265,7 +264,7 @@ body {
     grid-template-columns:1fr;
   }
 
-  .order-summary-container {
+  .cart-grid-order-summary-container {
     grid-column: 1;
     grid-row: 1;
   }
