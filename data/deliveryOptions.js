@@ -10,4 +10,15 @@ export const deliveryOptions = [{
   id: '3',
   deliveryDays: 1,
   price: 999
-}]
+}];
+
+export function getDeliveryID(deliveryOptionId){
+  let deliveryOption = null;
+
+  deliveryOptions.forEach((option) => {
+    if (option.id === deliveryOptionId) {
+      deliveryOption = option;
+    }
+  });
+  return deliveryOption || deliveryOption[0];
+}
