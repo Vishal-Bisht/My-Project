@@ -1,3 +1,5 @@
+import { renderPaymentSummary } from "../scripts/orderSummary.js";
+
 export let cart = JSON.parse(localStorage.getItem('cart'));
 if (!cart) {
   cart = [{
@@ -60,6 +62,7 @@ export function removeFromCart(productId) {
   });
   cart = newcart;
   saveToStorage();
+  renderPaymentSummary();
 }
 
 export function CartquantityCount() {
