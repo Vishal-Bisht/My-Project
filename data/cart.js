@@ -1,6 +1,11 @@
 import { renderPaymentSummary } from "../scripts/orderSummary.js";
 
-export let cart = JSON.parse(localStorage.getItem('cart'));
+export let cart;
+
+loadFromStorage();
+
+export function loadFromStorage(){
+  cart = JSON.parse(localStorage.getItem('cart'));
 if (!cart) {
   cart = [{
     id: "1c079479-8586-494f-ab53-219325432536",
@@ -11,6 +16,7 @@ if (!cart) {
     quantity: 1,
     deliveryOptionId: '2'
   }];
+}
 }
 
 function saveToStorage() {
@@ -28,7 +34,6 @@ export function addToCart(productId) {
 
   if (matchingitem) {
     matchingitem.quantity += 1;
-    console.log(matchingitem.id);
   }
   else {
     cart.push({
@@ -37,10 +42,6 @@ export function addToCart(productId) {
       deliveryOptionId: '1'
     });
   }
-
-  let cartQuantity = CartquantityCount();
-  document.querySelector('.count').innerHTML = cartQuantity;
-
   saveToStorage();
 }
 
