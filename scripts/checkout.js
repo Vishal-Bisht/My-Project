@@ -6,7 +6,7 @@ import { formatCurrency } from './utils/money.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 
 
-function renderOrderPage() {
+export function renderOrderPage() {
 
   const today = dayjs();
 
