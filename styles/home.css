@@ -63,6 +63,8 @@
 }
 
 .product-quantity {
+  display: flex;
+  justify-content: space-between;
   margin: 10px 0 20px 0;
 }
 
@@ -86,6 +88,11 @@
   padding: 2px 5px;
   margin-right: 8px;
 } */
+
+.size_chart{
+  font-size: 13px;
+  color: rgb(78, 78, 78)
+}
 
 .add-to-cart {
   display: flex;

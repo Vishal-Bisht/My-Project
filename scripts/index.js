@@ -31,6 +31,7 @@ products.forEach((Product) => {
                 <option >9</option>
                 <option >10</option>
               </select>
+              ${Product.extraInfoHTML()}
             </div>
             <div class="add-to-cart">
               <button class="btn_add_to_cart"
