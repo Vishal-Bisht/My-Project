@@ -46,7 +46,7 @@ export function renderOrderPage() {
               </div>
               <div class="product-info">
                 <div class="product_name">${matchingProduct.name}</div>
-                <div class="price">$${formatCurrency(matchingProduct.price)}</div>
+                <div class="price">${matchingProduct.getPrice()}</div>
                 <div>Quantity: <span class="quantity" data-product-quantity = "${cart_items.quantity}">${cart_items.quantity}</span> <span class="btn add-item" data-product-id="${matchingProduct.id}">Update</span><span class="btn delete-item" data-product-id="${matchingProduct.id}">Delete</span> </div>
               </div>
               </div>
