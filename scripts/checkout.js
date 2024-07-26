@@ -1,9 +1,12 @@
 import { cart, CartquantityCount, updateItemQuantity, removeFromCart, updateDeliveryOptions } from '../data/cart.js';
-import { products, getProduct } from '../data/products.js';
+import { products, loadProducts, getProduct } from '../data/products.js';
 import { deliveryOptions } from '../data/deliveryOptions.js';
 import { renderPaymentSummary } from './orderSummary.js';
 import { formatCurrency } from './utils/money.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
+import '../Backend/practice.js'
+
+
 
 
 export function renderOrderPage() {
@@ -114,5 +117,7 @@ export function renderOrderPage() {
     });
 }
 
-renderOrderPage();
-renderPaymentSummary();
+loadProducts(()=>{
+  renderOrderPage();
+  renderPaymentSummary();
+});
