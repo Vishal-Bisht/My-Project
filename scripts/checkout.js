@@ -4,9 +4,16 @@ import { deliveryOptions } from '../data/deliveryOptions.js';
 import { renderPaymentSummary } from './orderSummary.js';
 import { formatCurrency } from './utils/money.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
-import '../Backend/practice.js'
 
-
+new Promise((resolve)=>{
+  loadProducts(()=>{
+    resolve();
+  });
+  
+}).then(()=>{
+  renderOrderPage();
+  renderPaymentSummary();
+});
 
 
 export function renderOrderPage() {
@@ -117,7 +124,7 @@ export function renderOrderPage() {
     });
 }
 
-loadProducts(()=>{
-  renderOrderPage();
-  renderPaymentSummary();
-});
+// loadProducts(()=>{
+//   renderOrderPage();
+//   renderPaymentSummary();
+// });
